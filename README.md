@@ -83,17 +83,22 @@ Sau quá trình thử nghiệm và so sánh chéo, kiến trúc mạng tự xây
 Để chứng minh độ tin cậy của mô hình, hệ thống đã kết xuất các biểu đồ phân tích kỹ thuật sau:
 
 **1. Phân tích Biểu đồ học tập (Learning Curve)**
+
+![Learning Curve](images/learning_curve.png)
+
 * **Sự hội tụ xuất sắc:** Trên cả hai biểu đồ Accuracy và Loss, đường Training và Validation bám sát nhau xuyên suốt 50 Epochs. Đường Val Accuracy luôn giữ vững đà tăng và tiệm cận với Train Accuracy.
 * **Kiểm soát Overfitting:** Đồ thị cho thấy hệ thống **không hề bị Overfitting**. Việc kết hợp hoàn hảo giữa các lớp `Dropout`, `BatchNormalization` và kỹ thuật tăng cường ảnh (`Data Augmentation`) đã phát huy tác dụng tối đa, giúp mô hình tổng quát hóa cực tốt trên dữ liệu mới thay vì chỉ "học vẹt".
 
 **2. Phân tích Ma trận nhầm lẫn (Confusion Matrix)**
+
+![Confusion Matrix](images/confusion_matrix.png)
+
 Dựa vào ma trận dự đoán chéo trên tập Test, có thể rút ra đặc tính nhận diện cảm xúc của AI như sau:
 * **Nhóm xuất sắc:** Cảm xúc **Happy (Vui vẻ)** có độ phân loại chính xác cao nhất (1442 mẫu đoán đúng), tiếp theo là **Surprise (Bất ngờ)**. Các biểu cảm này có sự thay đổi cơ mặt rõ rệt (cười lớn, mở to mắt) nên AI bóc tách đặc trưng rất dễ dàng.
 * **Nhóm ổn định:** Cảm xúc **Angry (Tức giận)** và **Neutral (Bình thường)** được phân loại tương đối tốt, tỷ lệ nhận diện đúng cao dù vẫn còn một vài mẫu bị nhầm lẫn chéo với nhau.
 * **Nhóm thách thức:** Cảm xúc **Sad (Buồn bã)** là điểm yếu nhất của hệ thống. Có đến 379 bức ảnh "Buồn bã" bị AI nhận diện nhầm thành "Bình thường". Lý do xuất phát từ thực tế: biểu cảm buồn thường rất vi tế (chỉ hơi chùng khóe miệng hoặc ánh mắt). Ranh giới giữa một khuôn mặt buồn nhẹ và khuôn mặt vô cảm (Neutral) là rất mong manh, ngay cả với mắt người cũng khó có thể phân biệt chính xác 100%.
 
 ---
-
 ## 6. 🛠️ Công nghệ sử dụng
 
 * **Ngôn ngữ:** Python 
