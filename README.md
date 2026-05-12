@@ -82,16 +82,16 @@ Sau quá trình thử nghiệm và so sánh chéo, kiến trúc mạng tự xây
 
 Để chứng minh độ tin cậy của mô hình, hệ thống đã kết xuất các biểu đồ phân tích kỹ thuật sau:
 
-**1. Phân tích Biểu đồ học tập (Learning Curve)**
+**1. Phân tích Biểu đồ Accuracy & Loss**
 
-![Learning Curve](images/learning_curve.png)
+![AccuracyAndLoss](images/AccuracyAndLoss.png)
 
 * **Sự hội tụ xuất sắc:** Trên cả hai biểu đồ Accuracy và Loss, đường Training và Validation bám sát nhau xuyên suốt 50 Epochs. Đường Val Accuracy luôn giữ vững đà tăng và tiệm cận với Train Accuracy.
 * **Kiểm soát Overfitting:** Đồ thị cho thấy hệ thống **không hề bị Overfitting**. Việc kết hợp hoàn hảo giữa các lớp `Dropout`, `BatchNormalization` và kỹ thuật tăng cường ảnh (`Data Augmentation`) đã phát huy tác dụng tối đa, giúp mô hình tổng quát hóa cực tốt trên dữ liệu mới thay vì chỉ "học vẹt".
 
 **2. Phân tích Ma trận nhầm lẫn (Confusion Matrix)**
 
-![Confusion Matrix](images/confusion_matrix.png)
+![Confusion Matrix](images/MatrixConfusion.png)
 
 Dựa vào ma trận dự đoán chéo trên tập Test, có thể rút ra đặc tính nhận diện cảm xúc của AI như sau:
 * **Nhóm xuất sắc:** Cảm xúc **Happy (Vui vẻ)** có độ phân loại chính xác cao nhất (1442 mẫu đoán đúng), tiếp theo là **Surprise (Bất ngờ)**. Các biểu cảm này có sự thay đổi cơ mặt rõ rệt (cười lớn, mở to mắt) nên AI bóc tách đặc trưng rất dễ dàng.
